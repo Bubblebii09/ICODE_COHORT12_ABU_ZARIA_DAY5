@@ -1,0 +1,65 @@
+ 1. Install the IC SDK & Motoko Compiler
+1.1. IC SDK via Installer Script
+
+Run the official installer which includes dfx, dfxvm, and moc (Motoko compiler):
+
+*sh -ci "$(curl -fsSL https://internetcomputer.org/install.sh)"*
+
+
+Afterwards, confirm installation:
+
+*dfx --version*
+
+internetcomputer.org
+1.2. Add dfx to Your PATH
+
+If dfx isn’t on your PATH, add it (typically at ~/bin):
+
+*echo 'export PATH="$HOME/bin:$PATH"' >> ~/.bashrc*
+*source ~/.bashrc*
+
+1.3. Configure networks.json
+
+Set up local and mainnet endpoints in ~/.config/dfx/networks.json:
+
+{
+  "local": { "bind":"127.0.0.1:8080","type":"ephemeral","replica":{"subnet_type":"application"} },
+  "ic":    { "providers":["https://mainnet.dfinity.network"],"type":"persistent" }
+}
+
+🛠 2. Motoko Language Support in VS Code
+2.1. Install the Motoko Extension
+
+In VS Code’s Extensions panel, search for “Motoko” by DFINITY Foundation and install.
+This provides syntax highlighting, snippets, type checking, and deploy commands
+Visual Studio Marketplace
+.
+2.2. Official Motoko Docs & Quickstart
+
+Review the language overview and quickstart examples on the Internet Computer site:
+
+    Meet Motoko: basic syntax, actors, async/await
+    internetcomputer.org
+
+    Motoko Quickstart: “hello world” canister and deploy flow
+    internetcomputer.org
+
+🦀 3. Installing Rust & WebAssembly Target
+3.1. Install rustup & Rust Toolchain
+
+Run the official Rust installer:
+
+*curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh*
+
+Then follow the on-screen prompts to install the stable toolchain
+Rust
+.
+3.2. Add WASM Target for Canisters
+
+To compile Rust → WebAssembly for ICP, add the following target:
+
+rustup target add wasm32-unknown-unknown
+
+Rust
+
+
